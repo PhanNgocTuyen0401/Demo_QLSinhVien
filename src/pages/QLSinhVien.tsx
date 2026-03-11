@@ -106,6 +106,7 @@ const QLSinhVien = () => {
                 <th>Ngành học</th>
                 <th>Môn học</th>
                 <th>Hành động</th>
+                <th>Hành động</th>
               </tr>
             </thead>
 
