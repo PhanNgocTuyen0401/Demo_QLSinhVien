@@ -1,5 +1,7 @@
 export interface SinhVien {
   maSV: string;
   tenSV: string;
-  tuoi: number;
+  ngaySinh: string;
+  nganhHoc: string;
+  monHoc: string;
 }

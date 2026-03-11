@@ -4,14 +4,19 @@ import "./QLSV.css";
 interface SinhVien {
   maSV: string;
   tenSV: string;
-  tuoi: number;
+  ngaySinh: string;
+  nganhHoc: string;
+  monHoc: string;
 }
 
 const QLSinhVien = () => {
 
   const [maSV, setMaSV] = useState("");
   const [tenSV, setTenSV] = useState("");
-  const [tuoi, setTuoi] = useState("");
+  const [ngaySinh, setNgaySinh] = useState("");
+  const [nganhHoc, setNganhHoc] = useState("");
+  const [monHoc, setMonHoc] = useState("");
+
   const [ds, setDs] = useState<SinhVien[]>([]);
 
   const themSinhVien = () => {
@@ -19,14 +24,18 @@ const QLSinhVien = () => {
     const sv: SinhVien = {
       maSV,
       tenSV,
-      tuoi: Number(tuoi)
+      ngaySinh,
+      nganhHoc,
+      monHoc
     };
 
     setDs([...ds, sv]);
 
     setMaSV("");
     setTenSV("");
-    setTuoi("");
+    setNgaySinh("");
+    setNganhHoc("");
+    setMonHoc("");
   };
 
   const xoaSinhVien = (ma: string) => {
@@ -58,9 +67,21 @@ const QLSinhVien = () => {
           />
 
           <input
-            placeholder="Tuổi"
-            value={tuoi}
-            onChange={(e) => setTuoi(e.target.value)}
+            type="date"
+            value={ngaySinh}
+            onChange={(e) => setNgaySinh(e.target.value)}
+          />
+
+          <input
+            placeholder="Ngành học"
+            value={nganhHoc}
+            onChange={(e) => setNganhHoc(e.target.value)}
+          />
+
+          <input
+            placeholder="Môn học"
+            value={monHoc}
+            onChange={(e) => setMonHoc(e.target.value)}
           />
 
           <button className="btnAdd" onClick={themSinhVien}>
@@ -81,9 +102,10 @@ const QLSinhVien = () => {
               <tr>
                 <th>Mã SV</th>
                 <th>Tên SV</th>
-                <th>Tuổi</th>
+                <th>Ngày sinh</th>
+                <th>Ngành học</th>
+                <th>Môn học</th>
                 <th>Hành động</th>
-                
               </tr>
             </thead>
 
@@ -93,7 +115,9 @@ const QLSinhVien = () => {
                 <tr key={sv.maSV}>
                   <td>{sv.maSV}</td>
                   <td>{sv.tenSV}</td>
-                  <td>{sv.tuoi}</td>
+                  <td>{sv.ngaySinh}</td>
+                  <td>{sv.nganhHoc}</td>
+                  <td>{sv.monHoc}</td>
                   <td>
                     <button
                       className="btnDelete"

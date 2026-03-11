@@ -6,22 +6,34 @@ interface Props {
 }
 
 const SinhVienForm: React.FC<Props> = ({ onAdd }) => {
+
   const [maSV, setMaSV] = useState("");
   const [tenSV, setTenSV] = useState("");
-  const [tuoi, setTuoi] = useState(0);
+  const [ngaySinh, setNgaySinh] = useState("");
+  const [nganhHoc, setNganhHoc] = useState("");
+  const [monHoc, setMonHoc] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    onAdd({ maSV, tenSV, tuoi });
+    onAdd({
+      maSV,
+      tenSV,
+      ngaySinh,
+      nganhHoc,
+      monHoc
+    });
 
     setMaSV("");
     setTenSV("");
-    setTuoi(0);
+    setNgaySinh("");
+    setNganhHoc("");
+    setMonHoc("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
+
       <h2>Thêm Sinh Viên</h2>
 
       <input
@@ -37,13 +49,25 @@ const SinhVienForm: React.FC<Props> = ({ onAdd }) => {
       />
 
       <input
-        type="number"
-        placeholder="Tuổi"
-        value={tuoi}
-        onChange={(e) => setTuoi(Number(e.target.value))}
+        type="date"
+        value={ngaySinh}
+        onChange={(e) => setNgaySinh(e.target.value)}
+      />
+
+      <input
+        placeholder="Ngành học"
+        value={nganhHoc}
+        onChange={(e) => setNganhHoc(e.target.value)}
+      />
+
+      <input
+        placeholder="Môn học"
+        value={monHoc}
+        onChange={(e) => setMonHoc(e.target.value)}
       />
 
       <button type="submit">Thêm</button>
+
     </form>
   );
 };
