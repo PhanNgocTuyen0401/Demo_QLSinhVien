@@ -83,6 +83,7 @@ const QLSinhVien = () => {
                 <th>Tên SV</th>
                 <th>Tuổi</th>
                 <th>Hành động</th>
+                <th>Hành động</th>
               </tr>
             </thead>
 
